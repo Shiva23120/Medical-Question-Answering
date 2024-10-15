@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Answering System</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Full viewport height */
+            background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fpngtree.com%2Ffree-backgrounds&psig=AOvVaw0Jay2I9E6uvhBIEHdbhlC6&ust=1729075992537000&source=images&cd=vfe&opi=89978449&ved=0CBQQjhxqFwoTCMjNr5eckIkDFQAAAAAdAAAAABAE"); /* Replace with your image URL */
+            
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <h1>Question Answering System</h1>
+    <form action="/predict" method="POST">
+        <label for="question">Enter your question:</label><br>
+        <input type="text" id="question" name="question" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    {% if question %}
+    <h2>Question:</h2>
+    <p>{{ question }}</p>
+    
+    <h2>Answer:</h2>
+    <p>{{ answer }}</p>
+    {% endif %}
+</center>
+</body>
+</html>
