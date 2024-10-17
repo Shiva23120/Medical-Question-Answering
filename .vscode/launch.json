@@ -1,0 +1,40 @@
+{
+    "configurations": [
+    
+    ]
+}document.getElementById('submitBtn').addEventListener('click', function() {
+    const userQuestion = document.getElementById('userQuestion').value;
+
+    // Input validation
+    if (userQuestion.trim() === "") {
+        alert("Please enter a question.");
+        return;
+    }
+
+    // Clear previous response
+    document.getElementById('responseArea').innerText = '';
+
+    // AJAX request to send the question to the server
+    fetch('api.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ question: userQuestion }),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Display the answer and confidence if available
+        document.getElementById('responseArea').innerText = 
+            `Answer: ${data.answer || 'No answer found.'}\nConfidence: ${data.confidence || 'N/A'}`;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        document.getElementById('responseArea').innerText = 'An error occurred while fetching the answer.';
+    });
+});

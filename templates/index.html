@@ -9,27 +9,54 @@
             margin: 0;
             padding: 0;
             height: 100vh; /* Full viewport height */
-            background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fpngtree.com%2Ffree-backgrounds&psig=AOvVaw0Jay2I9E6uvhBIEHdbhlC6&ust=1729075992537000&source=images&cd=vfe&opi=89978449&ved=0CBQQjhxqFwoTCMjNr5eckIkDFQAAAAAdAAAAABAE"); /* Replace with your image URL */
-            
+            background-image: url("https://cdn1.vectorstock.com/i/1000x1000/53/00/blue-medical-background-with-text-space-vector-25875300.jpg");
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        h1 {
+            margin-top: 50px;
+            color: #ffffff;
+        }
+        form {
+            background-color: rgba(0, 0, 0, 0.5); /* Adds transparency to the form */
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        input[type="text"], input[type="submit"] {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: none;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
     <center>
-    <h1>Question Answering System</h1>
-    <form action="/predict" method="POST">
-        <label for="question">Enter your question:</label><br>
-        <input type="text" id="question" name="question" required><br><br>
-        <input type="submit" value="Submit">
-    </form>
+        <h1>Question Answering System</h1>
+        <form action="/predict" method="POST">
+            <label for="question">Enter your question:</label><br>
+            <input type="text" id="question" name="question" required><br><br>
+            <input type="submit" value="Submit">
+        </form>
 
-    {% if question %}
-    <h2>Question:</h2>
-    <p>{{ question }}</p>
-    
-    <h2>Answer:</h2>
-    <p>{{ answer }}</p>
-    {% endif %}
-</center>
+        {% if question %}
+        <h2>Question:</h2>
+        <p>{{ question }}</p>
+        
+        <h2>Answer:</h2>
+        <p>{{ answer }}</p>
+        {% endif %}
+    </center>
 </body>
 </html>
