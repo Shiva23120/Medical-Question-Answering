@@ -21,7 +21,7 @@ def generate_answer(question):
 # Define route for the home page
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('templates/index.html')
 
 # Define route for processing user input
 @app.route('/predict', methods=['POST'])
@@ -34,7 +34,7 @@ def predict():
         answer = generate_answer(user_question)
         
         # Return the result to the webpage
-        return render_template('index.html', question=user_question, answer=answer)
+        return render_template('templates/index.html', question=user_question, answer=answer)
 
 # Run the Flask app
 if __name__ == '__main__':
